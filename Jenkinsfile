@@ -7,6 +7,7 @@ pipeline {
                 echo 'Hello World'
                 sh'''
                 sleep 10
+                exit 1
                 '''
             }
         }
