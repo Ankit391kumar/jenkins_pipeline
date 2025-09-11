@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage ('stage_1') {
-            agent {lable 'slave1'}
+            agent { label 'slave1' }
             steps {
                 sh '''
                 echo "this ti stage_1"
@@ -13,7 +13,7 @@ pipeline {
             }
         }
         stage ('stage_2') {
-            agent {lable 'slave2'}
+            agent { lable 'slave2' }
             steps {
                 sh '''
                 echo "this ti stage_2"
