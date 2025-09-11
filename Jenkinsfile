@@ -8,6 +8,7 @@ pipeline {
                 sh '''
                 echo "this ti stage_1"
                 ls -lrt
+                sleep 30
                 '''
             }
         }
@@ -17,6 +18,7 @@ pipeline {
                 sh '''
                 echo "this ti stage_2"
                 ls -lrt
+                sleep 30
                 '''
             }
         }
