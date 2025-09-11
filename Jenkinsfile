@@ -10,7 +10,6 @@ pipeline {
                 '''
             }
         }
-        stages {
         stage ('stage_2') {
             steps {
                 sh '''
