@@ -2,20 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage ('stage_1') {
             steps {
-                echo 'Hello World'
-                sh'''
-                sleep 10
-                exit 1
+                sh '''
+                echo "this ti stage_1"
+                ls -lrt
                 '''
             }
         }
-        stage('Hello1') {
+        stages {
+        stage ('stage_2') {
             steps {
-                echo 'Hello World1'
-                sh'''
-                sleep 10
+                sh '''
+                echo "this ti stage_2"
+                ls -lrt
                 '''
             }
         }
