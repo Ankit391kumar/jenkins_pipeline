@@ -13,9 +13,9 @@ pipeline {
             }
             steps {
                 // Groovy syntex
-                git_url = "${env.GIT_URL}"
-                git_branch = ${env.CURRENT_BRANCH}
-                git_creds = ${env.GIT_CREDS}
+                git_url: "${env.GIT_URL}"
+                git_branch: ${env.CURRENT_BRANCH}
+                git_creds: ${env.GIT_CREDS}
             }
         }
         stage ('shell_suntex') {
