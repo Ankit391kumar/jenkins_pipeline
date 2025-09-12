@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ('CHECKOUT') {
+            environment {
+                APP_NAME = 'frontend'
+                TARGET_ENV = 'test'
+                GIT_URL = 'https://github.com/Ankit391kumar/jenkins_pipeline.git'
+                CURRENT_BRANCH = 'main'
+                GIT_CREDS = 'apps_github'
+
+            }
+            steps {
+                // Groovy syntex
+                git_url = "${env.GIT_URL}"
+                git_branch = ${env.CURRENT_BRANCH}
+                git_creds = ${env.GIT_CREDS}
+            }
+        }
+        stage ('shell_suntex') {
+            steps {
+                sh'''
+                echo $GIT_URL
+                echo $CURRENT_BRANCH
+                echo $GIT_CREDS
+
+            }
+        }
+            
+    }
+}
