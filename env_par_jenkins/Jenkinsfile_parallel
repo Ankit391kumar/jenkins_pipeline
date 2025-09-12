@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        satge('CHECKOUT') {
+        stage('CHECKOUT') {
             steps {
                 git branch: 'main', 
                     credentialsId: 'apps_github', 
@@ -19,7 +19,7 @@ pipeline {
                         '''
                     }
                 }
-                stage('test1') {
+                stage('test2') {
                     steps { 
                         sh '''
                            ls -lrt
