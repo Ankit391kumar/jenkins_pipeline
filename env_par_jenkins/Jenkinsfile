@@ -20,10 +20,11 @@ pipeline {
         }
         stage ('shell_suntex') {
             steps {
-                sh'''
-                echo $GIT_URL
-                echo $CURRENT_BRANCH
-                echo $GIT_CREDS
+                sh '''
+                   echo $GIT_URL
+                   echo $CURRENT_BRANCH
+                   echo $GIT_CREDS
+                '''
 
             }
         }
