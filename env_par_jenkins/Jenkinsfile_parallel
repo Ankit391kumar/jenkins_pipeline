@@ -1,0 +1,41 @@
+pipeline {
+    agent any 
+    stages {
+        satge('CHECKOUT') {
+            steps {
+                git branch: 'main', 
+                    credentialsId: 'apps_github', 
+                    url: 'https://github.com/Ankit391kumar/jenkins_pipeline.git'
+            }
+        }
+        stage('Prallel Stage') {
+            parallel {
+                stage('test1') {
+                    steps { 
+                        sh '''
+                           ls -lrt
+                           echo "Hello World"
+                           pwd
+                        '''
+                    }
+                }
+                stage('test1') {
+                    steps { 
+                        sh '''
+                           ls -lrt
+                           echo "Hello World"
+                           pwd
+                        '''
+                    }
+                }
+            }
+        }
+        stage('final_stage') {
+            steps {
+                sh '''
+                    echo "this is final stage"
+                '''
+            }    
+        }
+    }
+}
