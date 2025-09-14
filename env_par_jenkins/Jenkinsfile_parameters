@@ -9,18 +9,17 @@ pipeline {
     stages {
         stage ('CHECKOUT') {
             steps {
-                // shell script
+                // shell script to groovy formet
                 sh"""
-                   echo $GIT_CREDS
-                   echo $CHECKOUT_BRANCH
+                   echo ${params.MY_URL}
+                   echo ${params.SERVER}
                 """
             }
         }
         stage ('stage2') { // groovy syntex
             steps {
                 git url: "${params.MY_URL}",
-                    server: "${params.SERVER}"
-                    credintiolsID: "${params.GIT_CREDS}"
+                    credentialsId: "${params.GIT_CREDS}"
                     branch: "${params.CHECKOUT_BRANCH}"
             }
         }
