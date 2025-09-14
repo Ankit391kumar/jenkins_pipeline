@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        choice(name: "GIT_URL", choices: ['https://github.com/Ankit391kumar/jenkins_pipeline.git','https://github.com/Ankit391kumar/Jenkins-Zero-To-Hero.git'])
-        choice(name: "SERVER", choice: ['test', 'preprod', 'prod']) )
+        choice(name: "GIT_URL", choices: ['https://github.com/Ankit391kumar/jenkins_pipeline.git', 'https://github.com/Ankit391kumar/Jenkins-Zero-To-Hero.git'])
+        choice(name: "SERVER", choices: ['test', 'preprod', 'prod'])
     }
     environment{
         CHECKOUT_BRANCH = 'main'
