@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test1') {
             steps {
-                catchError(stageResult: 'Failure', buildResulr: 'SUCCESS') {
+                catchError(stageResult: 'Failure', buildResult: 'SUCCESS') {
                     sh'''
                         echo "This is test1 branch"
                         exit 1
