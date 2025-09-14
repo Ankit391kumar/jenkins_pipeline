@@ -1,29 +1,32 @@
 pipeline {
     agent any
+
     parameters {
-        choice(name: "MY_URL", choices: ['https://github.com/Ankit391kumar/jenkins_pipeline.git', 'https://github.com/Ankit391kumar/Jenkins-Zero-To-Hero.git'])
+        choice(name: "MY_URL", choices: [
+            'https://github.com/Ankit391kumar/jenkins_pipeline.git', 
+            'https://github.com/Ankit391kumar/Jenkins-Zero-To-Hero.git'
+        ])
         choice(name: "SERVER", choices: ['test', 'preprod', 'prod'])
         string(name: 'GIT_CREDS', defaultValue: 'apps_github')
         string(name: 'CHECKOUT_BRANCH', defaultValue: 'main')
     }
+
     stages {
-        stage ('checkout') { // groovy syntex
+        stage('Checkout') {
             steps {
-                git(
-                    url: "${params.MY_URL}",
+                git branch: "${params.CHECKOUT_BRANCH}", 
+                    url: "${params.MY_URL}", 
                     credentialsId: "${params.GIT_CREDS}"
-                    branch: "${params.CHECKOUT_BRANCH}")
             }
         }
-        stage ('STAGE1') {
+
+        stage('Stage 1') {
             steps {
-                // shell script to groovy formet
-                sh"""
-                   echo ${params.MY_URL}
-                   echo ${params.SERVER}
+                sh """
+                    echo Selected URL: ${params.MY_URL}
+                    echo Target Server: ${params.SERVER}
                 """
             }
         }
-        
     }
 }
