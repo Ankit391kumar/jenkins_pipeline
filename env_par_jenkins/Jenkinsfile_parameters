@@ -7,11 +7,12 @@ pipeline {
         string(name: 'CHECKOUT_BRANCH', defaultValue: 'main')
     }
     stages {
-        stage ('CHECKOUT') { // groovy syntex
+        stage ('checkout') { // groovy syntex
             steps {
-                git url: "${params.MY_URL}",
+                git(
+                    url: "${params.MY_URL}",
                     credentialsId: "${params.GIT_CREDS}"
-                    branch: "${params.CHECKOUT_BRANCH}"
+                    branch: "${params.CHECKOUT_BRANCH}")
             }
         }
         stage ('STAGE1') {
