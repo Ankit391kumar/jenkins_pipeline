@@ -14,7 +14,7 @@ pipeline {
             steps {
                 catchError(stageResult: 'Failure', buildResult: 'SUCCESS') {
                     sh'''
-                        echo "This is test1 branch for pollscm"
+                        echo "This is test1 branch for pollscm assdsd "
                         exit 1
                     '''
                 }
